@@ -1,0 +1,260 @@
+{
+  "workspaces": {
+    "John's Workspace": {
+      "main": {
+        "id": "8eac680269b31ba7",
+        "type": "split",
+        "children": [
+          {
+            "id": "84d9b487570336f2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Binary Analysis/ELF.md",
+                "mode": "preview"
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "588f26234384164d",
+        "type": "split",
+        "children": [
+          {
+            "id": "0f05f84addf10eaf",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d3f15f68045818ff",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "12f315caac79d5fa",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "tag:#PLACE-HOLDER-FOR-CONTENT",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "02dd1fff6a943fa8",
+        "type": "split",
+        "children": [
+          {
+            "id": "3cfbde4f1382e4f7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "53d9c1f14d22c69f",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Binary Analysis/ELF.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "fd1f81aa16a80253",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Binary Analysis/ELF.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "c875e677446ef7c1",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "448de538e91fcf8b",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Binary Analysis/ELF.md"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300,
+        "collapsed": true
+      },
+      "active": "84d9b487570336f2"
+    },
+    "Colin's Workspace": {
+      "main": {
+        "id": "8eac680269b31ba7",
+        "type": "split",
+        "children": [
+          {
+            "id": "e93f8a8a420d887c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Programming/Java/The Road to Java is paved with Blood, Sweat, and Tears.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "588f26234384164d",
+        "type": "split",
+        "children": [
+          {
+            "id": "0f05f84addf10eaf",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "d3f15f68045818ff",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {}
+                }
+              },
+              {
+                "id": "12f315caac79d5fa",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "tag:#PLACE-HOLDER-FOR-CONTENT",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "right": {
+        "id": "02dd1fff6a943fa8",
+        "type": "split",
+        "children": [
+          {
+            "id": "3cfbde4f1382e4f7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "53d9c1f14d22c69f",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "Programming/Java/The Road to Java is paved with Blood, Sweat, and Tears.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": true,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "fd1f81aa16a80253",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "Programming/Java/The Road to Java is paved with Blood, Sweat, and Tears.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  }
+                }
+              },
+              {
+                "id": "c875e677446ef7c1",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true
+                  }
+                }
+              },
+              {
+                "id": "448de538e91fcf8b",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "Programming/Java/The Road to Java is paved with Blood, Sweat, and Tears.md"
+                  }
+                }
+              },
+              {
+                "id": "175a967017dd1163",
+                "type": "leaf",
+                "state": {
+                  "type": "side-panel-control-view",
+                  "state": {}
+                }
+              }
+            ],
+            "currentTab": 1
+          }
+        ],
+        "direction": "horizontal",
+        "width": 300
+      },
+      "active": "e93f8a8a420d887c"
+    }
+  },
+  "active": "Colin's Workspace"
+}

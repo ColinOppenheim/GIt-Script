@@ -1,0 +1,23 @@
+/* Use to float an image Right. When padding, add left padding */
+img[alt$=">"] {
+  float: right;
+  padding-left:10px;
+}
+/* Use to float an image Right. When padding, add right padding */
+img[alt$="<"] {
+  float: left;
+  padding-right: 10px;
+}
+
+img[alt$="><"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+}
+
+table {
+  justify-content: center;
+  margin: auto;
+}

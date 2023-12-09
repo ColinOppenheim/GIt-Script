@@ -1,0 +1,300 @@
+yes,Docker/Basics Of Docker.md
+yes,Docker/docker commands/docker build.md
+yes,Docker/docker commands/docker run.md
+yes,Docker/Docker Glossary.md
+yes,Docker/Getting Started.md
+yes,Git/Git Press Go.md
+yes,Git/Gitting for Gits.md
+yes,Images/CA-Install-Root.png
+yes,Images/CA-Install-Sub.png
+yes,Images/CertificateAuthority.png
+yes,Images/CertificteAuthorities_CA_Installed.png
+yes,Images/CertificteAuthorities_CA_Not_Installed.png
+yes,Images/Click-add key.png
+yes,Images/Click-SSH.png
+yes,Images/ethan-giphy.gif
+yes,Images/fdisk-d-command.png
+yes,Images/Fdisk-Filesytem.png
+yes,Images/fdisk-l-command.png
+yes,Images/fdisk-list-example.png
+yes,Images/fdisk-Make-Partition.png
+yes,Images/fdisk-p-after-t.png
+yes,Images/fdisk-p-command.png
+yes,Images/fdisk-t-command.png
+yes,Images/It'sLog!.gif
+yes,Images/javafx-application-structure.jpg
+yes,Images/jimmy-git.gif
+yes,Images/Language-Type-Matrix.png
+yes,Images/lsblk_example.png
+yes,Images/madadm-create.PNG
+yes,Images/madadm-detail.PNG
+yes,Images/MS_AD_CS_Welcome_DownloadCA.png
+yes,Images/MS_AD_CS_Welcome_Select_DownloadCA.png
+yes,Images/Multiple-clapping.gif
+yes,Images/MVC_model_view_controller.jpg
+yes,Images/New-Partition.png
+yes,Images/New-Repo-Info.png
+yes,Images/New-Repo.png
+yes,Images/Open-Fdisk.png
+yes,Images/overriding-in-java.png
+yes,Images/Pasted image 20210924160426.png
+yes,Images/Pasted image 20210925172053.png
+yes,Images/Pasted image 20230927091159.png
+yes,Images/Pasted image 20230927103744.png
+yes,Images/Pasted image 20230927105245.png
+yes,Images/Pasted image 20230927105654.png
+yes,Images/Pasted image 20230927114435.png
+yes,Images/Pasted image 20230927122923.png
+yes,Images/Pasted image 20230927131041.png
+yes,Images/Pasted image 20231005124214.png
+yes,Images/Pasted image 20231005124447.png
+yes,Images/Pasted image 20231006073448.png
+yes,Images/Pasted image 20231006073639.png
+yes,Images/Pasted image 20231008080519.png
+yes,Images/Pasted image 20231009111820.png
+yes,Images/PubKey.png
+yes,Images/RAID-Data-Found.png
+yes,Images/RAID-Data-Not-Found.png
+yes,Images/RAID-Layout.png
+yes,Images/RAID-Zeroed.png
+yes,Images/Rename-Repo.png
+yes,Images/rick-and-morty-pass-the-butter.gif
+yes,Images/RootCA-SubCa-SSL-Cert.png
+yes,Images/SceneBuilder_Library.PNG
+yes,Images/Self-Destruct.jpg
+yes,Images/Settings.png
+yes,Images/SNL-Fixed-it.gif
+yes,Images/steve-git.gif
+yes,Images/The Rules of the Repo.md
+yes,Images/VGscan-result.png
+yes,Images/young-frankenstein-toast.gif
+yes,Linux/All Things Drives.md
+yes,Linux/All Things RAID.md
+yes,Linux/Apt Package Manager.md
+yes,Linux/du.md
+yes,Linux/Formating Disks.md
+yes,Linux/fuser.md
+yes,Linux/locate.md
+yes,Linux/mkfs.md
+yes,Linux/netcat.md
+yes,Linux/Networking in Linux.md
+yes,Linux/sh.md
+yes,Linux/SSH.md
+yes,Linux/sudo.md
+yes,Linux/syslog-ng.md
+yes,Linux/syslog.md
+yes,Linux/tcpdump.md
+yes,Linux/tee.md
+yes,Linux/Using System Documentation.md
+yes,Linux/vim.md
+yes,Linux/Volume Group Tools.md
+yes,Linux/watch.md
+yes,Linux/xargs.md
+yes,Linux/youtube-dl.md
+yes,Logging/Logging like a Lumber Jack.md
+yes,Programming/An Introduction to Programming.md
+yes,Programming/Data Types.md
+yes,Programming/Guile/Introduction.md
+yes,Programming/Java/1-Java needs GFuel - Start.md
+yes,Programming/Java/FXML Controls.md
+yes,Programming/Java/JavaFX, It Has The Beans!.md
+yes,Programming/Java/Scene Builder.md
+yes,Programming/Java/UML Diagram Of Customer_Controller.md
+yes,Programming/Java/UML Diagram.md
+yes,Programming/MVC.md
+yes,Programming/Python/Enough Python To Get By.md
+yes,Programming/Python/Python Functions.md
+yes,Programming/Python/Python Iterartors and Generators.md
+yes,Programming/Python/Python Modules.md
+yes,Security/Certificate Authorities.md
+yes,Security/Certificate Chains.md
+yes,Security/Certificate Signing Requests.md
+yes,Security/Certificate Utility Belt.md
+yes,Security/CN-CommonName.md
+yes,Security/Digital Certificates.md
+yes,Security/Effing Magnets/Windows Kernel-Mode Debugging.md
+yes,Security/Identity and Access Management/LDAP Search Filter Cheatsheet.md
+yes,Security/Identity and Access Management/LDAP vs. Active Directory.md
+yes,Security/Identity and Access Management/What is IAM.md
+yes,Security/Microsoft AD Certificate Services.md
+yes,Security/Rare Techniques/Proxychains.md
+yes,Security/Rare Techniques/SSH Tunneling.md
+yes,Security/SIEMs/KQL - Kusto Query Language.md
+yes,Security/Where to leave your damn keys.md
+yes,Windows/System Internals/Glossary.md
+yes,Windows/System Internals/The Component Object Model (COM).md
+yes,Windows/System Internals/Tools.md
+no,.gitignore
+no,.obsidian/app.json
+no,.obsidian/appearance.json
+no,.obsidian/command-palette.json
+no,.obsidian/community-plugins.json
+no,.obsidian/core-plugins-migration.json
+no,.obsidian/core-plugins.json
+no,.obsidian/daily-notes.json
+no,.obsidian/graph.json
+no,.obsidian/hotkeys.json
+no,.obsidian/plugins/codeblock-customizer/data.json
+no,.obsidian/plugins/codeblock-customizer/main.js
+no,.obsidian/plugins/codeblock-customizer/manifest.json
+no,.obsidian/plugins/codeblock-customizer/styles.css
+no,.obsidian/plugins/obsidian-markdown-formatting-assistant-plugin/data.json
+no,.obsidian/plugins/obsidian-markdown-formatting-assistant-plugin/main.js
+no,.obsidian/plugins/obsidian-markdown-formatting-assistant-plugin/manifest.json
+no,.obsidian/plugins/obsidian-markdown-formatting-assistant-plugin/styles.css
+no,.obsidian/plugins/obsidian-pluck/main.js
+no,.obsidian/plugins/obsidian-pluck/manifest.json
+no,.obsidian/plugins/obsidian-pluck/styles.css
+no,.obsidian/plugins/open-vscode/main.js
+no,.obsidian/plugins/open-vscode/manifest.json
+no,.obsidian/plugins/update-relative-links/main.js
+no,.obsidian/plugins/update-relative-links/manifest.json
+no,.obsidian/snippets/centerImg.css
+no,.obsidian/snippets/images.css
+no,.obsidian/themes/Cybertron.css
+no,.obsidian/themes/Dracula for Obsidian.css
+no,.obsidian/themes/Horizon.css
+no,.obsidian/themes/Obsidian gruvbox.css
+no,.obsidian/themes/Obsidian Nord.css
+no,.obsidian/themes/Tokyo Night.css
+no,.obsidian/workspace
+no,.obsidian/workspace-mobile.json
+no,.obsidian/workspace.json
+no,.obsidian/workspaces.json
+no,.obsidian/plugins/obsidian-git/data.json
+no,.obsidian/plugins/obsidian-git/main.js
+no,.obsidian/plugins/obsidian-git/manifest.json
+no,.obsidian/plugins/obsidian-git/styles.css
+no,.vscode/settings.json
+no,Binary Analysis/Binutils.md
+no,Binary Analysis/Confuse Disassemblers/Linear obfuscation.md
+no,Binary Analysis/Confuse Disassemblers/Recursive obfuscation.md
+no,Binary Analysis/Creation of Binaries.md
+no,Binary Analysis/Disassembly.md
+no,Binary Analysis/ELF.md
+no,Binary Analysis/GDB.md
+no,Binary Analysis/Lazy Binding.md
+no,Binary Analysis/Linkers.md
+no,Binary Analysis/Loader.md
+no,Binary Analysis/Man Page Snippits/ELF5.md
+no,Binary Analysis/Radare2.md
+no,Binary Analysis/System Calls.md
+no,Binary Analysis/Terms.md
+no,Binary Analysis/libbfd.md
+no,Binary Analysis/r2 commands.md
+no,Binary Analysis/r2pipe.md
+no,Binary Analysis/rarun2.md
+no,GNU Guix/Introduction.md
+no,Git/screen_like_a_skidd.md
+no,Images/MS_AD_CS_Welcome.png
+no,Images/PBS-AddtoDirectory.png
+no,Images/PBS-Directory-Final.PNG
+no,Images/PBS-Directory-Initial-lsblk.png
+no,Images/PBS-Directory-Initial.png
+no,Images/PBS-Host-Backup-Brief.png
+no,Images/PBS-Host-Backup-Detailed.png
+no,Images/PBS_CSR.png
+no,Images/Pasted image 20210911161154.png
+no,Images/Pasted image 20210918150008.png
+no,Images/Pasted image 20210923125705.png
+no,Images/Pasted image 20210924145307.png
+no,Images/Pasted image 20211014103149.png
+no,Images/Pasted image 20211014122238.png
+no,Images/Pasted image 20211014122641 1.png
+no,Images/Pasted image 20211014122641.png
+no,Images/Pasted image 20211030105928.png
+no,Images/Pasted image 20230927113417.png
+no,Images/Pasted image 20230927120046.png
+no,Images/Pasted image 20231006073343.png
+no,Images/Proxmox-APT-Repositories.png
+no,Images/Proxmox-Customized-IOMMU-Check.png
+no,Images/Proxmox-Stack.svg
+no,Images/Proxmox_CSR_Gen.png
+no,Images/Proxmox_Upload_CRT.png
+no,Images/Screenshot_20210901-125108_Google_Play_Store.jpg
+no,Images/Screenshot_20210901-125712_MGit.jpg
+no,Images/Sign_CSR.png
+no,Images/Sign_CSR_Attributes.png
+no,Images/Signed_Cert_Download.png
+no,Images/add_to_search.PNG
+no,Images/dwight-screaming.gif
+no,Images/houseToIdiocracy.jpg
+no,Images/markdown-icon.png
+no,Images/pfSense-CertManager-Done.png
+no,Images/pfSense-CertManager.png
+no,Images/pfSense-New-Cert.png
+no,Images/pfSense-RootCA-Complete.png
+no,Images/pfSense-RootCA.png
+no,Images/pfSense-SelfCertification.png
+no,Images/pfSense-SubCA.png
+no,Images/pfSense_Certificate_List.png
+no,Images/pfSense_Shellcmd.png
+no,Images/pfSense_Version_Branch.png
+no,Images/pfSense_virtio_console_load.png
+no,Images/pfSense_webConfigurator_Change.png
+no,Images/suricata_dns_event.PNG
+no,Images/test.gif
+no,Index.md
+no,Make/CPP.md
+no,Make/Makefile.md
+no,MarkDown Hell.md
+no,NagiosXI/Backup and Restore.md
+no,NagiosXI/Exporting The Configuration Database.md
+no,NagiosXI/NagiosXI Basics.md
+no,NagiosXI/Resources.md
+no,Notes/GitHooks for Obsidian.md
+no,Obsidian/Obsidian Plugins To Consider.md
+no,Obsidian/Obsidian Starter Pack.md
+no,Projects.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Allies Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Animations Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Attacks Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Audio Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Dialogues Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Effects Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Event Scripts Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Formations Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Items Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Levels Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Menus Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Mini-Games Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Monsters Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Sprites Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/Sub-Editors.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Editors/World Map Editor.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/FAQ.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Glossary.md
+no,ROM Hacking/Super Mario RPG/Lazy Shell/Introduction.md
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230425073951.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230425115252.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230425145539.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230425150206.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230425150427.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427122054.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427122604.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427122857.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427123256.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427123449.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427142325.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427142652.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427172015.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427172311.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427172815.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427172912.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427174535.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230427182503.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230428085645.png
+no,ROM Hacking/Super Mario RPG/images/Pasted image 20230428085958.png
+no,Readme.md
+no,TrueNAS Scale/TrueNas Scale to your liking.md
+no,VPN/Zerotier.md
+no,Virtualization/LXC.md
+no,Virtualization/Proxmox Certified.md
+no,Virtualization/Proxmox Customized.md
+no,Virtualization/Proxmox is Hard.md
+no,Virtualization/Proxmox-BACKUP!BEEP!BEEP!.md
+no,Virtualization/QEMU USB.md
+no,pfSense/Managing Endpoint Certificates.md
+no,pfSense/Setting up your own CA.md
+no,pfSense/Virtual pfSense Router.md
+yes,Git/Go Go GIT Scripts.md

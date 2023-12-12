@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # GitHub API token
-API_KEY="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"
+API_KEY="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"
 
-# Remote repo details
-REMOTE_REPO="https://github.com/ColinOppenheim/Learning-Repository.git"
+# Remote repo URL with embedded token  
+REMOTE_REPO="https://$API_KEY@github.com/ColinOppenheim/Learning-Repository.git"
 BRANCH="master"
 
 # CSV file 
@@ -27,26 +27,30 @@ awk -F, '{
 
 # Populate sync lists
 FILES_TO_TRACK=()
-FILES_TO_REMOVE=()
+FILES_TO_REMOVE=() 
+
 while IFS=, read -r sync_status file_path; do
+  file_path="${file_path//\"}"
+  
   if [[ "$sync_status" == "yes" ]]; then
     FILES_TO_TRACK+=("$file_path")
   elif [[ "$sync_status" == "no" ]]; then
     FILES_TO_REMOVE+=("$file_path")
-  fi  
+  fi
 done < "$temp_csv_file"
 
 
-# Fetch updates using API key
-git -c "http.extraheader=AUTHORIZATION: token $API_KEY" -C "$target_repo_dir" fetch "$REMOTE_REPO" "$BRANCH"
+# Fetch latest master branch updates
+git -C "$target_repo_dir" fetch --depth=1 $REMOTE_REPO $BRANCH
 
-# Checkout files using API key 
+# Checkout files 
 for file_path in "${FILES_TO_TRACK[@]}"; do
-  full_path="$target_repo_dir/$file_path"
-
-  if git -c "http.extraheader=AUTHORIZATION: token $API_KEY" -C "$target_repo_dir" show "$BRANCH":"$file_path" > /dev/null 2>&1; then  
-    git -c "http.extraheader=AUTHORIZATION: token $API_KEY" -C "$target_repo_dir" checkout "$BRANCH" -- "$file_path"
-  fi  
+    if git -C "$target_repo_dir" show "FETCH_HEAD":"$file_path"> /dev/null 2>&1; then 
+        git -C "$target_repo_dir" checkout "FETCH_HEAD" -- "$file_path"
+        echo "Checking out $file_path"  
+    else
+        echo "Error checking out $file_path" >&2
+    fi
 done
 
 # Remove files  

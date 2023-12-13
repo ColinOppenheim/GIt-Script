@@ -18,10 +18,8 @@ target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\RTMF
 
 # Replace spaces with escaped paths in CSV 
 awk -F, '{
-  if ($1 == "yes" || $1 == "no") {  
-    gsub(/ /, "\\\\ ", $2);
-    gsub(/([()\[\]{}*?+^$|])/,"\\\\\\1",$2);
-    if ($2 !~ /\/\./) print $0; 
+  if ($1 == "yes" || $1 == "no") { 
+    if ($2 !~ /\/\./) print $0;  
   }
 }' "$csv_file" > "$temp_csv_file"
 
@@ -30,15 +28,23 @@ FILES_TO_TRACK=()
 FILES_TO_REMOVE=() 
 
 while IFS=, read -r sync_status file_path; do
+  # Skip files starting with ./
+  if [[ "$file_path" =~ ^.\/ ]]; then
+    continue
+  fi
+  # Skip readme.md files
+  if [[ "$file_path" =~ ^README\.md$/i ]]; then
+    continue 
+  fi
+  # Remove quotes 
   file_path="${file_path//\"}"
   
   if [[ "$sync_status" == "yes" ]]; then
     FILES_TO_TRACK+=("$file_path")
   elif [[ "$sync_status" == "no" ]]; then
-    FILES_TO_REMOVE+=("$file_path")
+    FILES_TO_REMOVE+=("$file_path") 
   fi
 done < "$temp_csv_file"
-
 
 # Fetch latest master branch updates
 git -C "$target_repo_dir" fetch --depth=1 $REMOTE_REPO $BRANCH

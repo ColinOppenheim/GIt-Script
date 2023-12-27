@@ -1,5 +1,23 @@
 #!/bin/bash
 
+:'
+This script functions as an updater to identify what new files have been 
+found in the master branch of a Git repository and append them to a CSV file. 
+The CSV file is used as a list of files to be synced with a remote repository. 
+By default any new file found will be will be appended to the CSV with a sync 
+status of "no", meaning it will not be synced with the remote repository. You 
+will need to change change the sync status to "yes" in the CSV file to sync 
+the file with the remote repository.
+
+It is designed to look at a local copy of the repository and not the remote 
+repository, so you will need to have a copy of that repository on your local 
+machine and have that directory specified inthe main_repo_dir variable. Future 
+improvements will attempt to pull the list from another location or use the 
+remote repository directly.
+
+This script is intended to be run from the command line.
+:'
+
 # Specify the directory to scan (make it recursive)
 main_repo_dir=~/Vaults/Learning-Repository
 

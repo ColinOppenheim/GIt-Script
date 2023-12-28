@@ -37,6 +37,7 @@ temp_csv_file=$(mktemp)
 
 # First Iteration: Check for files in CSV but not in the master branch
 while IFS=, read -r sync_status file_path; do
+    org_file_path=$file_path
     # Remove quotes from file_path for verification
     file_path_no_quotes=$(sed 's/"//g' <<< "$file_path")
     # Construct the full path to the file with quotes
@@ -44,11 +45,13 @@ while IFS=, read -r sync_status file_path; do
     echo "Checking file $full_path..."
 
     # Check if the file exists in the master branch of the repository
-    if git -C "$main_repo_dir" rev-parse --quiet --verify "master:$file_path_no_quotes" > /dev/null; then
+    if git -C "$main_repo_dir" rev-parse --quiet --verify "master:$org_file_path_no_quotes" > /dev/null; then
         # Add quotes to file_path if it is not empty and has no quotes; otherwise, leave it alone.
-        # if [[ $file_path != "*" && $file_path != "" ]]; then
-        #     file_path="\"$file_path\""
-        # fi
+        echo "Current value of file_path: $org_file_path"
+        if [[ $org_file_path != \"\" && $org_file_path != \"*\" && ${file_path:0:1} != "\"" && ${file_path: -1} != "\"" ]]; then
+            file_path="\"$file_path_no_quotes\""
+            file_path="${file_path%$'\n'}" # Remove trailing newline character if present
+        fi
         # File exists in the master branch, keep it in the CSV with its current sync status
         echo "$sync_status,$file_path" >> "$temp_csv_file"
     else

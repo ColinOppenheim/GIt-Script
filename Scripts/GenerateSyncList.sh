@@ -1,6 +1,6 @@
 #!/bin/bash
 
-:'
+<< ////
 This script functions as an initial snapshot tool to identify all the files 
 in a local folder, and add them to a .csv so they can be used to sync that 
 list of files with another repository. It will populate the list of files 
@@ -19,8 +19,8 @@ The script will output a message indicating the location of the CSV file.
 This script is written in Bash.
 
 This script is licensed under the MIT license.
+////
 
-:'
 
 # Specify the directory to scan
 scan_directory=~/Vaults/Public/Learning-Repository

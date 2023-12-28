@@ -1,6 +1,5 @@
 #!/bin/bash
-
-:'
+<< ////
 This script functions as an updater to identify what new files have been 
 found in the master branch of a Git repository and append them to a CSV file. 
 The CSV file is used as a list of files to be synced with a remote repository. 
@@ -16,7 +15,7 @@ improvements will attempt to pull the list from another location or use the
 remote repository directly.
 
 This script is intended to be run from the command line.
-:'
+////
 
 # Specify the directory to scan (make it recursive)
 main_repo_dir=~/Vaults/Learning-Repository
@@ -38,21 +37,27 @@ temp_csv_file=$(mktemp)
 
 # First Iteration: Check for files in CSV but not in the master branch
 while IFS=, read -r sync_status file_path; do
-    # Construct the full path to the file
-    full_path="$main_repo_dir/$file_path"
+    # Remove quotes from file_path for verification
+    file_path_no_quotes=$(sed 's/"//g' <<< "$file_path")
+    # Construct the full path to the file with quotes
+    full_path="\"$main_repo_dir/$file_path_no_quotes\""
+    echo "Checking file $full_path..."
 
     # Check if the file exists in the master branch of the repository
-    if git -C "$main_repo_dir" rev-parse --quiet --verify "master:$file_path" > /dev/null; then
+    if git -C "$main_repo_dir" rev-parse --quiet --verify "master:$file_path_no_quotes" > /dev/null; then
+        # Add quotes to file_path if it is not empty and has no quotes; otherwise, leave it alone.
+        # if [[ $file_path != "*" && $file_path != "" ]]; then
+        #     file_path="\"$file_path\""
+        # fi
         # File exists in the master branch, keep it in the CSV with its current sync status
-        if [[ $file_path != \"*\" ]]; then
-            file_path="\"$file_path\""
-        fi
         echo "$sync_status,$file_path" >> "$temp_csv_file"
     else
         # File does not exist in the master branch, remove it from the CSV
-        echo "File '$file_path' not found in the master branch. Removing from CSV."
+        echo "File $full_path not found in the master branch. Removing from CSV."
     fi
 done < "$csv_file"
+
+echo "Done with first iteration verifying existing files, now identifying new files...."
 
 # Second Iteration: Check for new files in the master branch and append to CSV with sync status "no"
 git -C "$main_repo_dir" ls-tree --name-only -r master | while read -r file_path; do

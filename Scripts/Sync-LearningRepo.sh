@@ -1,84 +1,170 @@
 #!/bin/bash
-
-# Hard code access token for testing
-ACCESS_TOKEN="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"
-
-# Use relative path for csv file
-csv_file="C:\Users\colin.oppenheim.admi\Desktop\Remote-SyncTest\Scripts\sync_list.csv"
-
-# Check if csv file exists
-if [ ! -f "$csv_file" ]; then
-  read -p "CSV file not found at '$csv_file'. Enter the full path: " csv_file
-
-  # Validate entered path
-  if [ ! -f "$csv_file" ]; then
-    read -p "Error: CSV file not found at '$csv_file' - enter a valid path or enter Q to quit: " input
-
-    if [ "$input" = "Q" ] || [ "$input" = "q" ]; then
-      echo "Exiting script."
-      exit 1
-    else
-      csv_file=$input
-    fi
+# Function to validate and expand a given path
+expand_path() {
+  local input_path=$1
+  
+  # Check if absolute or relative path
+  if [[ $input_path == /* ]]; then 
+    # Absolute path
+    expanded_path=$(realpath "$input_path")
+  else
+    # Relative path 
+    normalized_path=${input_path/#\~/$HOME}
+    expanded_path=$(realpath "$normalized_path")
   fi
-fi
 
-# Print full path if CSV file is valid
-if [ -f "$csv_file" ]; then
-  echo "Using CSV file at: $csv_file"
-fi
+  echo "$expanded_path"
+}
 
-# Exit if CSV file is still not valid
-if [ ! -f "$csv_file" ]; then
-  echo "Error: Valid CSV file not found. Exiting script."
-  exit 1
-fi
+# GitHub API token
+API_KEY="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"
 
-# Target directory where the local repository is located
-target_dir="C:\Users\colin.oppenheim.admi\Desktop\Remote-SyncTest\RTMFM"
-
-# Specify the remote repository and branch
-REMOTE_REPO="github.com/ColinOppenheim/Learning-Repository.git"
+# Remote repo URL with embedded token  
+REMOTE_REPO="https://$API_KEY@github.com/ColinOppenheim/Learning-Repository.git"
 BRANCH="master"
 
-# Navigate to the target directory
-cd "$target_dir"
+# Target directory for syncing files  
+target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\RTMFM\\"
 
-# Add the remote repository with the access token if it doesn't exist
-if ! git remote | grep -q remote-repo; then
-    git remote add remote-repo "https://${ACCESS_TOKEN}@${REMOTE_REPO}"
+# Check if target dir exists
+if [ ! -d "$target_repo_dir" ]; then
+  while true; do
+    echo $target_repo_dir
+    # Prompt for new directory
+    read -p "Original target directory not found. Do you wish to Enter a new one or exit? (y/n) " exit_script
+    # Take action based on input
+    if [[ $exit_script == "y" || $exit_script == "Y" ]]; then
+      # Prompt for new directory
+      read -p "Enter new target directory:" new_target_dir
+      new_target_dir=$(echo "$new_target_dir" | tr -d '[:space:]')
+      new_target_dir=$(expand_path "$new_target_dir")
+
+      echo "New Target Directory is: $new_target_dir"
+      # Validate new input is directory
+      if [ ! -d "$new_target_dir" ]; then
+        echo "Invalid directory. Please try again."
+        continue
+      else
+        # Set target dir to the new one
+        target_repo_dir=$new_target_dir
+        break
+      fi
+    else
+      echo "Exiting No Target Directory Specified"
+      exit 1
+    fi
+  done
 fi
 
-# Fetch the latest changes from the remote repository
-git fetch remote-repo $BRANCH
+# Check if Git repo exists
+if [ ! -d "$target_repo_dir/.git" ]; then
 
-# Initialize sparse-checkout if not already done
-git sparse-checkout init
+  # Prompt user
+  read -p "No Git repo found. Initialize new repo? (y/n) " init_repo
+  
+  # Take action based on input
+  if [[ $init_repo == "y" || $init_repo == "Y" ]]; then
+    git -C "$target_repo_dir" init
+  else
+    echo "Exiting without initializing Git repo"
+    exit 2
+  fi
 
-# Pattern to match hidden folder paths
-HIDDEN_DIR_PATTERN="^\.*/"
+fi
+
+# CSV file
+csv_file="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\Scripts\\sync_list.csv"
+
+# Check if CSV file exists
+if [ ! -f "$csv_file" ]; then
+  # Prompt for correct path
+  read -p "sync_list.csv file not found. Enter correct path: " csv_file
+  csv_file=$(echo "$csv_file" | tr -d '[:space:]')
+  csv_file=$(expand_path "$csv_file")
+  
+  # Validate new input is CSV file
+  if [[ "$csv_file" != *.csv ]]; then
+    echo "Invalid file type. Please input CSV file path."
+    exit 3
+    else
+    # Set CSV file to the new one
+    csv_file=$csv_file
+  fi
+fi
+
+# Temporary file for corrected content
+temp_csv_file=$(mktemp)
+
+# Replace spaces with escaped paths in CSV 
+awk -F, '{
+  if ($1 == "yes" || $1 == "no") { 
+    if ($2 !~ /\/\./) print $0;  
+  }
+}' "$csv_file" > "$temp_csv_file"
+
+# Populate sync lists
+FILES_TO_TRACK=()
+FILES_TO_REMOVE=() 
 
 while IFS=, read -r sync_status file_path; do
-
-  file_path="${file_path//,/@}"
-
-  if [[ "$file_path" =~ $HIDDEN_DIR_PATTERN ]]; then
+    # Remove quotes 
+  file_path="${file_path//\"}"
+  
+  # Skip files starting with ./
+  if [[ "${file_path:0:1}" == "." ]]; then
+    #echo "$file_path Matches" 
     continue
   fi
-
-  if [ "$sync_status" == "yes" ]; then
-    git sparse-checkout set "\"$file_path\""
-  else
-    git sparse-checkout set "\"!$file_path\""
+  # Skip readme.md files (case-insensitive)
+  if [[ "${file_path,,}" == "readme.md" ]]; then
+    #echo "$file_path Matches" 
+    continue 
   fi
+  
+  if [[ "$sync_status" == "yes" ]]; then
+    FILES_TO_TRACK+=("$file_path")
+  elif [[ "$sync_status" == "no" ]]; then
+    FILES_TO_REMOVE+=("$file_path") 
+  fi
+done < "$temp_csv_file"
 
-done < "$csv_file"
+# # Print files to track 
+# echo "Files to track:"
+# printf '%s\n' "${FILES_TO_TRACK[@]}"
+# read -p ""
 
-awk -F, '{gsub(/,/,"@")} $1 == "yes" {print "\"" $2 "\""}' "$csv_file" | xargs git checkout remote-repo/$BRANCH --
+# # Print files to remove
+# echo "Files to remove:" 
+# printf '%s\n' "${FILES_TO_REMOVE[@]}"
+# read -p ""
 
-# Stage all changes and commit them to your local repository
-git add .
-git commit -m "Sync selected files from remote repository"
+# Fetch latest master branch updates
+echo "Fetching latest updates from $BRANCH branch..."
+git -C "$target_repo_dir" fetch --depth=1 $REMOTE_REPO $BRANCH
+# echo "Press enter to continue..."
+# read -p ""
 
-# Navigate back to the original directory
-cd -
+# Checkout files 
+for file_path in "${FILES_TO_TRACK[@]}"; do
+    if git -C "$target_repo_dir" show "FETCH_HEAD":"$file_path"> /dev/null 2>&1; then 
+        git -C "$target_repo_dir" checkout "FETCH_HEAD" -- "$file_path"
+        echo "Checking out $file_path"  
+    else
+        echo "Error checking out $file_path" >&2
+    fi
+done
+
+echo "Attempting to remove any files no longer in sync"
+
+# Remove files  
+for file_path in "${FILES_TO_REMOVE[@]}"; do
+  full_path="$target_repo_dir/$file_path"
+  
+  if [ -f "$full_path" ] && [[ "$file_path" != .* ]]; then
+    echo "Removing file: $file_path" 
+    rm "$full_path"
+  fi
+done
+
+# Clean up
+rm "$temp_csv_file"

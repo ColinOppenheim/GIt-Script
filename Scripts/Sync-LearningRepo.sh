@@ -1,4 +1,28 @@
 #!/bin/bash
+<< ////
+This script is what makes the magic happen in syncing the remote repo to the local repo.
+It takes a CSV file as input and uses that to sync the remote repo to a local onsite repo.
+The advantage in this method is allows updating of new content from the remote repo without
+having to manually update the local repo or make the local repo a fork of the original repo.
+
+The main requirements are the API_KEY, REMOTE_REPO, BRANCH, target_repo_dir, and csv_file. These
+are all set in the script; however, if they locations can not be found for the target_repo_dir
+or csv_file, the script will prompt the user to enter the correct path.The script will also prompt 
+the user to initialize a new Git repo if one is not found in the target folder as having a gitrepo 
+within the target folder is required for the script to work.
+
+The script works by reading the CSV file into two seperate arrays. The script file paths are stored in
+the CSV in quotes to ensure spaces and special characters within file names is captured,he first array
+is a list of files to be added to the repo. The second array is a list of files to be removed from the
+repo.
+
+It will then iterate through the first array and add each file to the repo. If the file already exists in
+the target directory, it will be skipped. If the file does not exist in the target repo, it will be added.
+After the second iteration it will remove any files listed in the CSV that are not in the locations
+specified by the CSV. This ensures the file names and folder structure within the repo match the data
+within the CSV so if a particular file is changed or moved it will be updated into the proper location.
+
+////
 # Function to validate and expand a given path
 expand_path() {
   local input_path=$1
@@ -25,6 +49,9 @@ BRANCH="master"
 
 # Target directory for syncing files  
 target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\RTMFM\\"
+
+# CSV file
+csv_file="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\Scripts\\sync_list.csv"
 
 # Check if target dir exists
 if [ ! -d "$target_repo_dir" ]; then
@@ -71,9 +98,6 @@ if [ ! -d "$target_repo_dir/.git" ]; then
   fi
 
 fi
-
-# CSV file
-csv_file="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\Scripts\\sync_list.csv"
 
 # Check if CSV file exists
 if [ ! -f "$csv_file" ]; then

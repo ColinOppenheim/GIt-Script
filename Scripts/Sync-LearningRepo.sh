@@ -53,9 +53,6 @@ fi
 # If decryption was successful, remove spaces
 API_KEY=$(echo "$API_KEY" | tr -d '[:space:]')
 
-
-echo "Returned API Key is:" $API_KEY
-
 # Remote repo URL with embedded token  
 REMOTE_REPO="https://$API_KEY@github.com/ColinOppenheim/Learning-Repository.git"
 BRANCH="master"

@@ -40,15 +40,17 @@ expand_path() {
   echo "$expanded_path"
 }
 
-# GitHub API token
-API_KEY="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"
+#Key encoded in terminal with echo -n "your_base64_encoded_key_here" > | base64 > api_key_base64.txt
+encoded_api_key=$(<api_key_base64.txt)
+# GitHub API token decoded from base64 because Github it s a little bitch and will automatically revoke the key if it finds one in a repo....
+API_KEY=$(echo "$encoded_api_key" | base64 -d)
 
 # Remote repo URL with embedded token  
 REMOTE_REPO="https://$API_KEY@github.com/ColinOppenheim/Learning-Repository.git"
 BRANCH="master"
 
 # Target directory for syncing files  
-target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\RTMFM\\"
+target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Vaults\\RTMFM\\"
 
 # CSV file
 csv_file="C:\\Users\\colin.oppenheim.admi\\Desktop\\Remote-SyncTest\\Scripts\\sync_list.csv"

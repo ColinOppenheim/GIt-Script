@@ -40,15 +40,27 @@ expand_path() {
   echo "$expanded_path"
 }
 
-#Key encoded in terminal with echo -n "your_base64_encoded_key_here" > | base64 > api_key_base64.txt
-encoded_api_key=$(<api_key_base64.txt)
-# GitHub API token decoded from base64 because Github it s a little bitch and will automatically revoke the key if it finds one in a repo....
-API_KEY=$(echo "$encoded_api_key" | base64 -d)
+# GitHub API token
+API_KEY=$(./decrypt-api-key.sh -s)
+
+# Check the exit status of the decryption script
+if [ $? -ne 0 ]; then
+    echo #
+    echo "Decryption failed. Exiting Sync-LearningRepo.sh."
+    exit 1
+fi
+
+# If decryption was successful, remove spaces
+API_KEY=$(echo "$API_KEY" | tr -d '[:space:]')
+
+
+echo "Returned API Key is:" $API_KEY
 
 # Remote repo URL with embedded token  
 REMOTE_REPO="https://$API_KEY@github.com/ColinOppenheim/Learning-Repository.git"
 BRANCH="master"
 
+echo $REMOTE_REPO
 # Target directory for syncing files  
 target_repo_dir="C:\\Users\\colin.oppenheim.admi\\Vaults\\RTMFM\\"
 
